@@ -1,0 +1,14 @@
+# Ignore backup files
+*~
+
+# Ignore generated TeX files
+*.aux
+*.log
+*.out
+
+# Pandoc-generated files
+outfiles/*
+
+
+# pandoc-scholar
+/pandoc-scholar
