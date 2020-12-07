@@ -1,5 +1,5 @@
 ---
-title: 'Formatting Open Science: agilely creating multiple document formats for academic manuscripts with Pandoc Scholar'
+title: 'A very intriguing article title'
 author:
   - Albert Krewinkel:
       institute: pdt
@@ -9,13 +9,37 @@ author:
       fullname: Prof. Dr. Robert Winkler
       email: robert.winkler@cinvestav.mx
       orcid: 0000-0001-6732-1958
+  - Jane Doe:
+      institute:
+        - fosg
+        - fop
+      email: jane.doe@example.com
+      orcid: 0000-0000-0000-0000
+      equal_contributor: "yes"
+      correspondence: "yes"
+  - John Q. Doe:
+      institute: fosg
+      equal_contributor: "yes"
+  - Peder Ås:
+      institute: fosg
+  - Juan Pérez:
+      institute: acme
+      email: juan.perez@example.edu
+      correspondence: "yes"
 institute:
   - cinvestav:
       name: 'CINVESTAV Unidad Irapuato, Department of Biochemistry and Biotechnology'
       address: 'Km. 9.6 Libramiento Norte Carr. Irapuato-León, 36821 Irapuato Gto. México'
       phone: +52 (462) 623 9635
   - pdt: Pandoc Development Team
-bibliography: refs.bib
+  - fosg:
+      name: Formatting Open Science Group
+      address: 23 Science Street, Eureka, Mississippi, USA
+      phone: +1 (555) 423 1338
+      email: '{firstname}.{lastname}\@fosg.example.com'
+  - fop: Federation of Planets
+  - acme:
+      name: Acme Corporation
 keywords:
   - open science
   - document formats
@@ -23,6 +47,13 @@ keywords:
   - latex
   - publishing
   - typesetting
+bibliography: refs.bib
+csl: peerj.csl
+link-citations: true
+project:
+  title: Pandoc Scholar Example
+  zip-url: https://github.com/pandoc-scholar/pandoc-scholar/releases
+  github-url: https://github.com/pandoc-scholar/pandoc-scholar/
 ---
 
 **Keywords:** open science, document formats, markdown, latex, publishing, typesetting
@@ -492,4 +523,4 @@ Drawings for document types, devices and applications have been adopted from Cal
 
 \newpage
 
-# Bibliography
+# References
