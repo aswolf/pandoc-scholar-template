@@ -38,6 +38,7 @@ keywords:
   - typesetting
 bibliography: refs.bib
 csl: peerj.csl
+hanging-indent: true
 link-citations: true
 project:
   title: Pandoc Scholar Example
@@ -51,19 +52,13 @@ project:
 
 This is a brief article demonstrating the features of the pandoc-scholar approach to manuscript preparation. More details can be found at <https://github.com/pandoc-scholar>.
 
-\newpage
 
 # Introduction
 
-Agile development of science depends on the continuous exchange of information between researchers [@woelfle_open_2011]. In the past, physical copies of scientific works had to be produced and distributed. Therefore, publishers needed to invest considerable resources for typesetting and printing. Since the journals were mainly financed by their subscribers, their editors not only had to decide on the scientific quality of a submitted manuscript, but also on the potential interest to their readers. The availability of globally connected computers enabled the rapid exchange of information at low cost. Yochai Benkler (2006) predicts important changes in the information production economy, which are based on three observations:
-
-1. A nonmarket motivation in areas such as education, arts, science, politics and theology.
-2. The actual rise of nonmarket production, made possible through networked individuals and coordinate effects.
-3. The emergence of large-scale peer production, e.g. of software and encyclopedias.
-
+Agile development of science depends on the continuous exchange of information between researchers [@woelfle_open_2011].
 Immaterial goods such as knowledge and culture are not lost when consumed or shared -- they are 'nonrival' --, and they enable a networked information economy, which is not commercially driven [@benkler_wealth_2006].
 
-## Preprints and e-prints
+## Preprints and e-prints {#sec:preprint}
 
 The terms 'preprints' and 'e-prints' are used synonymously, since the physical distribution of preprints has become obsolete. A major drawback of preprint publishing are the sometimes restrictive policies of scientific publishers. The SHERPA/RoMEO project informs about copyright policies and self-archiving options of individual publishers (<http://www.sherpa.ac.uk/romeo/>).
 
@@ -75,10 +70,12 @@ _"Barrier-free access to online works and other resources. OA literature is digi
 
 Frustrated by the difficulty to access even digitized scientific literature, three scientists founded the _Public Library of Science (PLoS)_. In 2003, _PLoS Biology_ was published as the first fully Open Access journal for biology [@brown_why_2003;@eisen_publish_2003].
 
+A smart reference to *@sec:preprint.
+
 
 ## Current standard publishing formats
 
-Although the content elements of documents, such as title, author, abstract, text, figures, tables, etc., remain the same, the syntax of the file formats is rather different. **Tab. 2** demonstrates some simple examples of differences in different markup languages.
+Although the content elements of documents, such as title, author, abstract, text, figures, tables, etc., remain the same, the syntax of the file formats is rather different. Table @tbl:md-format demonstrates some simple examples of differences in different markup languages.
 
 
 
@@ -93,14 +90,14 @@ italics        | `*text*`               | `\textit{text}`                       
 **links**      |                        |                                            |
 HTTP link      | `<https:// arxiv.org>` | `\usepackage{url} \url{https://arxiv.org}` | `<a href="https:// arxiv.org"></a>`
 
-  :Table 2. Examples for formatting elements and their implementations in different markup languages.
+  Table: Examples for formatting elements and their implementations in different markup languages. {#tbl:md-format}
 
 
 # Concepts of markdown and pandoc
 
-Markdown was originally developed by John Gruber in collaboration with Aaron Swartz, with the goal to simplify the writing of HTML documents <http://daringfireball.net/projects/markdown/>. Instead of coding a file in HTML syntax, the content of a document is written in plain text and annotated with simple tags which define the formatting. Subsequently, the Markdown (MD) files are parsed to generate the final HTML document. With this concept, the source file remains easily readable and the author can focus on the contents rather than formatting. Despite its original focus on the web, the MD format has been proven to be well suited for academic writing [@ovadia_markdown_2014]. In particular, pandoc-flavored MD (<http://pandoc.org/>) adds several extensions which facilitate the authoring of academic documents and their conversion into multiple output formats. **Tab. 2** demonstrates the simplicity of MD compared to other markup languages. **Fig. 3** illustrates the generation of various formatted documents from a manuscript in pandoc MD. Some relevant functions for scientific texts are explained below in more detail.
+Markdown was originally developed by John Gruber in collaboration with Aaron Swartz, with the goal to simplify the writing of HTML documents <http://daringfireball.net/projects/markdown/>. Instead of coding a file in HTML syntax, the content of a document is written in plain text and annotated with simple tags which define the formatting. Subsequently, the Markdown (MD) files are parsed to generate the final HTML document. With this concept, the source file remains easily readable and the author can focus on the contents rather than formatting. Despite its original focus on the web, the MD format has been proven to be well suited for academic writing [@ovadia_markdown_2014]. In particular, pandoc-flavored MD (<http://pandoc.org/>) adds several extensions which facilitate the authoring of academic documents and their conversion into multiple output formats. Table @tbl:md-format demonstrates the simplicity of MD compared to other markup languages. Figure @fig:pandoc illustrates the generation of various formatted documents from a manuscript in pandoc MD. Some relevant functions for scientific texts are explained below in more detail.
 
-![Workfow for the generation of multiple document formats with pandoc. The markdown (MD) file contains the manuscript text with formatting tags, and can also refer to external files such as images or reference databases. The pandoc processor converts the MD file to the desired output formats. Documents, citations etc. can be defined in style files or templates.](figs/Fig3.png "Workfow for the generation of multiple document formats with pandoc")
+![Workfow for the generation of multiple document formats with pandoc. The markdown (MD) file contains the manuscript text with formatting tags, and can also refer to external files such as images or reference databases. The pandoc processor converts the MD file to the desired output formats. Documents, citations etc. can be defined in style files or templates.](figs/Fig3.png "Workfow for the generation of multiple document formats with pandoc"){#fig:pandoc}
 
 ## Tables
 
@@ -154,11 +151,13 @@ Formulas are written in LATEX mode using the delimiters `$`. E.g. the formula fo
 $s=\sqrt{\frac{1}{N-1}\sum_{i=1}^N(x_i-\overline{x})^{2}}$
 ```
 
-and gives:
-
-$s=\sqrt{\frac{1}{N-1}\sum_{i=1}^N(x_i-\overline{x})^{2}}$
-
+and gives this ($s=\sqrt{\frac{1}{N-1}\sum_{i=1}^N(x_i-\overline{x})^{2}}$) for an inline figure.
+In the form of a labeled equation, we get the following:
+$$
+s=\sqrt{\frac{1}{N-1}\sum_{i=1}^N(x_i-\overline{x})^{2}}
+$$ {#eq:test-eqn}
 with $x_i$ the individual observations, $\overline{x}$ the sample mean and $N$ the total number of samples.
+And we can even reference the Equation @eq:test-eqn like this.
 
 Pandoc parses formulas into internal structures and allows conversion into formats other than LATEX. This allows for format-specific formula representation and enables computational analysis of the formulas [@garnet_semiautomatic_2015].
 
@@ -275,6 +274,8 @@ Writers can add information about the reason a citation is given. This might hel
 
 The work at hand will always be the subject of the generated semantic _subject-predicate-object_ triples. Some CiTO predicates cannot be used in a sensical way under this condition. Focusing on author convenience, we use this fact to allow shortening of properties when sensible. E.g. if authors of a biological paper include a reference to the paper describing a method which was used in their work, this relation can be described by the _uses_method_in_ property of the CiTO ontology. The inverse property, _provides_method_for_, would always be nonsensical in this context as implied by causality. It is therefore not supported by our tool. This allows us to introduce an abbreviation (_method_) for the latter property, as any ambiguity has been eliminated. Users of western blotting might hence write `@method_in:towbin_1979` or even just `@method:towbin_1979`, where _towbin_1979_ is the citation identifier of the describing paper by @towbin_electrophoretic_1979.
 
+See Appendix Sec. @sec:app-database for details on the underlying data. See Appendix Sec. @sec:app-derive for detailed derivation.
+
 # Conclusions
 
 Authoring scientific manuscripts in markdown (MD) format is straight-forward, and manual formatting is reduced to a minimum. The simple syntax of MD facilitates document editing and collaborative writing. The rapid conversion of MD to multiple formats such as DOCX, LATEX, PDF, EPUB and HTML can be done easily using pandoc, and templates enable the automated generation of documents according to specific journal styles.
@@ -283,11 +284,24 @@ The additional features we implemented facilitate the correct indexing of meta i
 
 Altogether, the MD format supports the agile writing and fast production of scientific literature. The associated time and cost reduction especially favours community-driven publication strategies.
 
-# Acknowledgments
+# Acknowledgments {.unnumbered}
 
 We cordially thank Dr. Gerd Neugebauer for his help in creating a subset of a bibtex data base using BibTool, as well as Dr. Ricardo A. Chávez Montes, Prof. Magnus Palmblad and Martin Fenner for comments on the manuscript. Warm thanks also go to Anubhav Kumar and Jennifer König for proofreading.
 
-\newpage
+<!-- \newpage -->
 
 
-# References
+# References {.unnumbered hanging-indent=true}
+
+::: {#refs}
+:::
+
+
+
+# Appendix
+
+## Derivation Details {#sec:app-derive}
+
+This is a test of the appendix placement after references.
+
+## Database Details {#sec:app-database}
