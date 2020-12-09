@@ -27,8 +27,9 @@ link-citations: true
 project:
   maintainer: Project Maintainer Name
   title: Project Title
-  zip-url:
+  zip-url: https://github.com/aswolf/pandoc-scholar-template/releases/tag/v0.1
   pdf-url: article.pdf
+  docx-url: article.docx
   github-url: https://github.com/aswolf/pandoc-scholar-template.git
 keywords: keyword1, keyword2, keyword3
 ---
