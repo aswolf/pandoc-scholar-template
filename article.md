@@ -25,8 +25,8 @@ institute:
 bibliography: refs.bib
 link-citations: true
 project:
-  maintainer: Project Maintainer Name
-  title: Project Title
+  maintainer: Aaron S. Wolf
+  title: pandoc-scholar-template
   zip-url: https://github.com/aswolf/pandoc-scholar-template/releases
   pdf-url: article.pdf
   docx-url: article.docx
@@ -83,6 +83,10 @@ To create a manuscript using this template, follow these steps:
 6) Revise manuscript and optionally commit changes to git (really, you should use git)
 7) return to step 5
 8) submit article in required format
+
+It is important to remember that both the main text and the YAML header must be edited to create a completed manuscript.
+The YAML header (everything above the Keywords & Abstract above) contains vital information for both the printed manuscript (like title and authors) as well as meta-data for the manuscript.
+Don't forget to also update or remove the project section to link to your own files as desired.
 
 ## Basic Document Elements
 
