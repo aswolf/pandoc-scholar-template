@@ -12,3 +12,4 @@ outfiles/*
 
 # pandoc-scholar
 /pandoc-scholar
+*.DS_Store
